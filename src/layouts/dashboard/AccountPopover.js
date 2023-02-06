@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useRef, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
@@ -7,7 +8,8 @@ import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton } from '@
 import MenuPopover from '../../components/MenuPopover';
 // mocks_
 import account from '../../_mock/account';
-
+// api
+import api from '../../config/services';
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
@@ -33,6 +35,8 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
   const anchorRef = useRef(null);
 
+  let userdata = localStorage.getItem('userInfo');
+  userdata = userdata ? JSON.parse(userdata) : null;
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {
@@ -42,6 +46,38 @@ export default function AccountPopover() {
   const handleClose = () => {
     setOpen(null);
   };
+
+  const handleLogout = () => {
+    localStorage.clear();
+            window.location.reload();
+    // logout();
+  };
+
+  const logout = () => {
+    const postUrl = api.logout;
+      const config = {
+        method: 'post',
+        url: postUrl,
+        headers: {
+          'Content-Type': 'application/json',
+          platform: 'web',
+          Authorization: `Bearer ${userdata.token}`,
+        },
+      };
+
+      axios(config)
+        .then((res) => {
+          const { data } = res;
+          
+          if (data.type === 'success') {
+            localStorage.clear();
+            window.location.reload();
+          } 
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
 
   return (
     <>
@@ -101,7 +137,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <MenuItem onClick={handleClose} sx={{ m: 1 }}>
+        <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
           Logout
         </MenuItem>
       </MenuPopover>

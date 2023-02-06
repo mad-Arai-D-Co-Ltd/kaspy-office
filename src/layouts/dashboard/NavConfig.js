@@ -22,6 +22,16 @@ const navConfig = [
     icon: getIcon('eva:shopping-bag-fill'),
   },
   {
+    title: 'order',
+    path: '/dashboard/orders',
+    icon: getIcon('eva:shopping-bag-fill'),
+  },
+  {
+    title: 'order history',
+    path: '/dashboard/orderhistory',
+    icon: getIcon('eva:shopping-bag-fill'),
+  },
+  {
     title: 'blog',
     path: '/dashboard/blog',
     icon: getIcon('eva:file-text-fill'),

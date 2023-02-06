@@ -1,0 +1,5 @@
+@media screen {
+	.hideComponent {
+		visibility: hidden;
+	}
+}
