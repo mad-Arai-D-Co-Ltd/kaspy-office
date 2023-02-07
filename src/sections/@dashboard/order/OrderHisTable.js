@@ -59,22 +59,22 @@ const [open, setOpen] = useState("");
                 <Table  aria-label="simple table">
                     
                 
-                        <TableHead>
-                        <TableRow>
-                            <TableCell align="center">ชื่อสินค้า</TableCell>
-                            <TableCell align="center">ราคา</TableCell>
-                            <TableCell align="center">จำนวน</TableCell>
-                            <TableCell align="center">หน่วย</TableCell>
-                            <TableCell align="center">ราคาสุทธิ</TableCell>
-                        </TableRow>
+                        <TableHead sx={{display: "table",tableLayout:"fixed",width:"100%"}}>
+                          <TableRow sx={{display: "table",tableLayout:"fixed",width:"100%"}}>
+                              <TableCell align="center">ชื่อสินค้า</TableCell>
+                              <TableCell align="center">ราคา</TableCell>
+                              <TableCell align="center">จำนวน</TableCell>
+                              <TableCell align="center">หน่วย</TableCell>
+                              <TableCell align="center">ราคาสุทธิ</TableCell>
+                          </TableRow>
                         </TableHead>
                         
-                        <TableBody>
+                        <TableBody sx={{display: "block",tableLayout:"fixed",width:"100%",maxHeight: "250px",overflow:"auto"}}>
                         
                         {order.order_product_historys.map((product) => (
                             <TableRow
                             key={product.id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } ,display: "table",tableLayout:"fixed",width:"100%"}}
                             >
                             <TableCell align="center">
                                 {product.productName}

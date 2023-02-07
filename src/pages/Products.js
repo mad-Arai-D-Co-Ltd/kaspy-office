@@ -5,7 +5,7 @@ import jwtDecode from "jwt-decode";
 import { Container, Stack, Typography,Button } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { ProductSort,ProductTable, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
+import { ProductSort,ProductTable, ProductCartWidget, ProductFilterSidebar,ProductCreate } from '../sections/@dashboard/products';
 // mock
 import PRODUCTS from '../_mock/products';
 // api
@@ -87,6 +87,7 @@ export default function Products() {
         <Typography variant="h4" sx={{ mb: 5 }}>
           Products
         </Typography>
+        <ProductCreate/>
         <Button onClick={handleUpdateTable} variant='contained' color='error' size='large' sx={{display:Object.keys(changeData).length > 0? "flex":"none",position:"fixed",right:"1%",bottom:"50%",width:"10%"}}>Update Price</Button>
         <ProductTable products={productList} inputChange={inputChange} changeData={changeData}/>
       </Container>

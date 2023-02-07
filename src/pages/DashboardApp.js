@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { useEffect,useState } from 'react';
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -17,11 +19,67 @@ import {
   AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
-
+// api
+import api from '../config/services';
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
   const theme = useTheme();
+  
+  useEffect(() => {
+    getWeeklySales();
+    getWeeklyOrders();
+    getWeeklyUsers();
+  }, []);
+
+  const [weeklySales, setWeeklySales] = useState({});
+  const getWeeklySales = () => {
+    const url = `${api.weeklySales}`;
+    axios
+      .get(url)
+      .then((res) => {
+        const { data } = res;
+        if (data.type === 'success') {
+          setWeeklySales(data.data.result);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const [weeklyOrders, setWeeklyOrders] = useState({});
+  const getWeeklyOrders = () => {
+    const url = `${api.weeklyOrder}`;
+    axios
+      .get(url)
+      .then((res) => {
+        const { data } = res;
+        if (data.type === 'success') {
+          setWeeklyOrders(data.data.result);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const [weeklyUsers, setWeeklyUsers] = useState({});
+  const getWeeklyUsers = () => {
+    const url = `${api.weeklyUsers}`;
+    axios
+      .get(url)
+      .then((res) => {
+        const { data } = res;
+        if (data.type === 'success') {
+          setWeeklyUsers(data.data.result);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  
 
   return (
     <Page title="Dashboard">
@@ -31,21 +89,21 @@ export default function DashboardApp() {
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
+          <Grid item xs={12} sm={6} md={4}>
+            <AppWidgetSummary title="Weekly Sales" total={weeklySales.length ? weeklySales[0].total:0} icon={'ant-design:android-filled'} />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+          <Grid item xs={12} sm={6} md={4}>
+            <AppWidgetSummary title="New Users" total={weeklyUsers.length ? weeklyUsers[0].total:0} color="info" icon={'ant-design:apple-filled'} />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+          <Grid item xs={12} sm={6} md={4}>
+            <AppWidgetSummary title="Item Orders" total={weeklyOrders.length ? weeklyOrders[0].total:0} color="warning" icon={'ant-design:windows-filled'} />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          {/* <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits

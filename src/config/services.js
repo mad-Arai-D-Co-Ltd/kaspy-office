@@ -1,6 +1,6 @@
 const ip = {
     localhost: 'http://localhost:3001',
-    production: 'https://hr-project.madtypes.com',
+    production: 'https://office-api.kaspy.com',
   };
   const apiIp = process.env.NODE_ENV === 'production' ? ip.production : ip.localhost;
   
@@ -16,6 +16,7 @@ const ip = {
     roleList : `${apiIp}/api/v1/user/role-list`,
     
     // product
+    createProduct: `${apiIp}/api/v1/product/create-product`,
     productList: `${apiIp}/api/v1/product/product-list`,
     updateProductList : `${apiIp}/api/v1/product/update-product-list`,
 
@@ -27,11 +28,18 @@ const ip = {
     createOrderTemp : `${apiIp}/api/v1/order/create-order-temp`,
     createOrderTempProd : `${apiIp}/api/v1/order/create-order-temp-prod`,
     createOrderTempProdList : `${apiIp}/api/v1/order/create-order-temp-prod-list`,
+    updateOrderTemp : `${apiIp}/api/v1/order/update-order-temp/`,
 
     // order his
     orderHisList: `${apiIp}/api/v1/order-his/order-his-list`,
     createOrderHis : `${apiIp}/api/v1/order-his/create-order-his`,
-    
+
+    // dashboard
+    weeklySales : `${apiIp}/api/v1/analysis/weekly-sales`,
+    weeklyOrder : `${apiIp}/api/v1/analysis/weekly-orders`,
+    weeklyUsers : `${apiIp}/api/v1/analysis/weekly-users`,
+
+    weeklyProductTotal : `${apiIp}/api/v1/analysis/prod-analysis-list`,
   };
   
   export default api;

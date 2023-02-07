@@ -12,6 +12,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import OrderClone from './OrderClone';
+import OrderEdit from './OrderEdit';
 
 OrderTable.propTypes = {
     orders: PropTypes.array.isRequired
@@ -26,10 +27,6 @@ const [open, setOpen] = useState("");
     } else {
       setOpen("");
     }
-  }
-
-  const handleClickEdit = (value) => {
-    console.log(value);
   }
   
   return (
@@ -59,10 +56,8 @@ const [open, setOpen] = useState("");
               <Typography sx={{display: open === order.id ? "none" : "flex",justifyContent:"center"}}>กดเพื่อแสดงรายละเอียดสินค้า</Typography>
               <Collapse in={open === order.id ? true : !true} timeout="auto" unmountOnExit  sx={{ minWidth: 600,display:"flex",justifyContent:"center" }}>
                 <Table  aria-label="simple table">
-                    
-                
-                        <TableHead>
-                        <TableRow>
+                        <TableHead sx={{display: "table",tableLayout:"fixed",width:"100%"}}>
+                        <TableRow sx={{display: "table",tableLayout:"fixed",width:"100%"}}>
                             <TableCell align="center">ชื่อสินค้า</TableCell>
                             <TableCell align="center">ราคา</TableCell>
                             <TableCell align="center">จำนวน</TableCell>
@@ -71,12 +66,12 @@ const [open, setOpen] = useState("");
                         </TableRow>
                         </TableHead>
                         
-                        <TableBody>
+                        <TableBody sx={{display: "block",tableLayout:"fixed",width:"100%",maxHeight: "250px",overflow:"auto"}}>
                         
                         {order.order_product_templates.map((product) => (
                             <TableRow
                             key={product.id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 },display: "table",tableLayout:"fixed",width:"100%" }}
                             >
                             <TableCell align="center">
                                 {product.product.name}
@@ -101,7 +96,11 @@ const [open, setOpen] = useState("");
                     </Collapse>
                 </TableCell>
                 <TableCell align="center" sx={{display:"column"}}>
-                    <Button onClick={() => handleClickEdit(order)}>เเก้ไข</Button>
+                    <OrderEdit 
+                      orderTemp={order}
+                      productList={productList} 
+                      unitList={unitList} 
+                    />
                     <OrderClone
                       orderTemp={order}
                       productList={productList} 

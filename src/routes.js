@@ -13,6 +13,7 @@ import Products from './pages/Products';
 import Orders from './pages/Orders';
 import OrderHistory from './pages/OrderHistory';
 import DashboardApp from './pages/DashboardApp';
+import WeeklyProdTotal from './pages/WeeklyProdTotal';
 
 // import Applicants from './pages/Applicants';
 
@@ -62,6 +63,7 @@ export default function Router() {
         { path: 'products', element: <Products /> },
         { path: 'orders', element: <Orders /> },
         { path: 'orderhistory', element: <OrderHistory /> },
+        { path: 'weekly-prod-total', element: <WeeklyProdTotal /> },
         { path: 'blog', element: <Blog /> },
       ],
     },
