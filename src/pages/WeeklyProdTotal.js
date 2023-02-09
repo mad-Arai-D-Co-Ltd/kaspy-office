@@ -37,10 +37,10 @@ export default function WeeklyProdTotal() {
   };
 
   return (
-    <Page title="Dashboard: Weekly Product Total">
+    <Page title="Dashboard: Day Product Total">
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
-            Weekly Product Total
+            Day Product Total
         </Typography>
         <Box sx={{display:'flex',justifyContent:'flex-end'}}>
             <ReactToPrint

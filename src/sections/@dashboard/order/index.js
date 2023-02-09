@@ -4,3 +4,4 @@ export { default as OrderClone } from './OrderClone';
 export { default as OrderEdit } from './OrderEdit';
 export { default as OrderPrint } from './OrderPrint';
 export { default as OrderHisTable } from './OrderHisTable';
+export { default as OrderHisEditCost } from './OrderHisEditCost';

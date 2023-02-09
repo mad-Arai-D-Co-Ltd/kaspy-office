@@ -33,13 +33,15 @@ const ip = {
     // order his
     orderHisList: `${apiIp}/api/v1/order-his/order-his-list`,
     createOrderHis : `${apiIp}/api/v1/order-his/create-order-his`,
+    updateCostPrice : `${apiIp}/api/v1/order-his/update-prod-his`,
 
     // dashboard
     weeklySales : `${apiIp}/api/v1/analysis/weekly-sales`,
     weeklyOrder : `${apiIp}/api/v1/analysis/weekly-orders`,
     weeklyUsers : `${apiIp}/api/v1/analysis/weekly-users`,
-
+    weeklyTopSpend : `${apiIp}/api/v1/analysis/weekly-top-spend`,
     weeklyProductTotal : `${apiIp}/api/v1/analysis/prod-analysis-list`,
+    productPriceHislist : `${apiIp}/api/v1/analysis/prod-price-his/`,
   };
   
   export default api;

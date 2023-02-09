@@ -17,7 +17,7 @@ const navConfig = [
     icon: getIcon('eva:people-fill'),
   },
   {
-    title: 'weekly product total',
+    title: 'day product total',
     path: '/dashboard/weekly-prod-total',
     icon: getIcon('eva:shopping-bag-fill'),
   },

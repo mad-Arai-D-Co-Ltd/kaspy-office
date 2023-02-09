@@ -11,8 +11,8 @@ import { TextField,Button,Collapse,Typography } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-import OrderClone from './OrderClone';
 import OrderPrint from './OrderPrint';
+import OrderHisEditCost from './OrderHisEditCost';
 
 OrderHisTable.propTypes = {
     orders: PropTypes.array.isRequired
@@ -62,6 +62,7 @@ const [open, setOpen] = useState("");
                         <TableHead sx={{display: "table",tableLayout:"fixed",width:"100%"}}>
                           <TableRow sx={{display: "table",tableLayout:"fixed",width:"100%"}}>
                               <TableCell align="center">ชื่อสินค้า</TableCell>
+                              <TableCell align="center">ราคาทุน</TableCell>
                               <TableCell align="center">ราคา</TableCell>
                               <TableCell align="center">จำนวน</TableCell>
                               <TableCell align="center">หน่วย</TableCell>
@@ -79,17 +80,11 @@ const [open, setOpen] = useState("");
                             <TableCell align="center">
                                 {product.productName}
                             </TableCell>
+                            <TableCell align="center">{product.costPrice}</TableCell>
                             <TableCell align="center">{product.price}</TableCell>
-                            <TableCell align="center">
-                                {product.quantity}
-                            </TableCell>
-                            <TableCell align="center">
-                                {product.unit.name}
-                            </TableCell>
-                            <TableCell align="center">
-                                {parseFloat(product.quantity) * parseFloat(product.price)}
-                            </TableCell>
-                            
+                            <TableCell align="center">{product.quantity}</TableCell>
+                            <TableCell align="center">{product.unit.name}</TableCell>
+                            <TableCell align="center">{parseFloat(product.quantity) * parseFloat(product.price)}</TableCell>
                             </TableRow>
                         ))}
                        
@@ -99,6 +94,7 @@ const [open, setOpen] = useState("");
                     </Collapse>
                 </TableCell>
                 <TableCell align="center" sx={{display:"column"}}>
+                  <OrderHisEditCost productData={order.order_product_historys} />
                     <OrderPrint
                       orders={order}
                       type="real"
