@@ -56,7 +56,7 @@ export default function DashboardApp() {
   
   const [productPriceHisList, setProductPriceHisList] = useState({});
   const [dateProdHis, setDateProdHis] = useState([]);
-  const [dataProdHis, setDataProdHis] = useState([]);
+  const [dataProdHis, setDataProdHis] = useState([{name:""}]);
   const getProductPriceHisList = (id) => {
     const url = `${api.productPriceHislist}${id}`;
     axios

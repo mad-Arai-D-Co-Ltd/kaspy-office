@@ -32,12 +32,12 @@ export default function AppWebsiteVisits({ handleChangeProd,productList, title, 
           return y;
         },
       },
-    },
+    }, 
   });
 
   return (
     <Card {...other}>
-      <Stack sx={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"flex-end"}}>
+      <Stack sx={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"flex-end",height:"8vh"}}>
         <CardHeader title={title} subheader={subheader} />
         <Autocomplete
             disablePortal
