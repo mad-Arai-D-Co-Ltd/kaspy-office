@@ -19,22 +19,22 @@ const navConfig = [
   {
     title: 'day product total',
     path: '/dashboard/weekly-prod-total',
-    icon: getIcon('eva:shopping-bag-fill'),
+    icon: getIcon('material-symbols:add-shopping-cart-sharp'),
   },
   {
     title: 'product',
     path: '/dashboard/products',
-    icon: getIcon('eva:shopping-bag-fill'),
+    icon: getIcon('fluent-mdl2:product-release'),
   },
   {
     title: 'order',
     path: '/dashboard/orders',
-    icon: getIcon('eva:shopping-bag-fill'),
+    icon: getIcon('material-symbols:inactive-order-rounded'),
   },
   {
     title: 'order history',
     path: '/dashboard/orderhistory',
-    icon: getIcon('eva:shopping-bag-fill'),
+    icon: getIcon('material-symbols:order-approve-rounded'),
   },
   // {
   //   title: 'blog',

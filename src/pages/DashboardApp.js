@@ -158,15 +158,15 @@ export default function DashboardApp() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={4}>
-            <AppWidgetSummary title="Weekly Sales" total={weeklySales.length ? weeklySales[0].total:0} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Weekly Sales" total={weeklySales.length ? weeklySales[0].total:0} icon={'icon-park-solid:sales-report'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <AppWidgetSummary title="New Users" total={weeklyUsers.length ? weeklyUsers[0].total:0} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="All Customer Template" total={weeklyUsers.length ? weeklyUsers[0].total:0} color="info" icon={'mdi:user-check'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <AppWidgetSummary title="Item Orders" total={weeklyOrders.length ? weeklyOrders[0].total:0} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Weekly Orders" total={weeklyOrders.length ? weeklyOrders[0].total:0} color="warning" icon={'material-symbols:order-approve-rounded'} />
           </Grid>
 
           {/* <Grid item xs={12} sm={6} md={3}>
