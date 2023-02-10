@@ -26,21 +26,25 @@ export default function OrderHistory() {
 
   const [orderHisList, setOrderHisList] = useState([]);
   const getOrderHisList = () => {
-    const url = `${api.orderHisList}`;
+    const url = api.orderHisList;
     
     const f = new Date(firstdayValue);
     const l = new Date(lastdayValue);
-    console.log(l.getDate());
     const data = {
       firstday : `${f.getFullYear()}-${f.getMonth() + 1}-${f.getDate()}` ,
       lastday :  `${l.getFullYear()}-${l.getMonth() + 1}-${l.getDate()}` ,
     }
     axios
-      .post(url,data)
+      .post(url,data,{
+        headers: {
+        Authorization: `Bearer ${userData.token}`,
+        },
+    })
       .then((res) => {
         const { data } = res;
         if (data.type === 'success') {
             setOrderHisList(data.data.result);
+            console.log(data.data.result);
         }
       })
       .catch((err) => {
