@@ -44,7 +44,6 @@ export default function OrderHistory() {
         const { data } = res;
         if (data.type === 'success') {
             setOrderHisList(data.data.result);
-            console.log(data.data.result);
         }
       })
       .catch((err) => {
@@ -64,6 +63,7 @@ export default function OrderHistory() {
   };
   
   const handleSearch = () => {
+    console.log("test");
     getOrderHisList();
   }
 
@@ -98,7 +98,7 @@ export default function OrderHistory() {
             <Stack>
               <Button
                 variant='contained'
-                onChange={handleSearch}
+                onClick={handleSearch}
               >ค้นหา</Button>
             </Stack>
             
