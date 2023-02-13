@@ -16,13 +16,13 @@ Header.propTypes = {
     orders: PropTypes.array.isRequired
   };
 
-export default function Header({orders,type, ...other }) {
-    const newDate = new Date()
-    const date = newDate.getDate();
+export default function Header({orders,type,date, ...other }) {
+    const newDate = new Date(date)
+    const dates = newDate.getDate();
     const month = newDate.getMonth() + 1;
     const year = newDate.getFullYear();
     console.log(type);
-    const dateNow = `${date}/${month<10?`0${month}`:`${month}`}/${year}`;
+    const dateNow = `${dates}/${month<10?`0${month}`:`${month}`}/${year}`;
 
   return (
     <Box sx={{position: "fixed",top:10,width:"89.9%"}}>
@@ -84,8 +84,8 @@ export default function Header({orders,type, ...other }) {
                 <Typography variant='body1' fontSize={10}>&nbsp;-</Typography>
             </Stack>
             <Stack sx={{display:'flex',flexDirection:"row",alignItems:"flex-end",width:"12%"}}>
-                <Typography variant='subtitle2' fontSize={8}>ครบกำหนด / </Typography>
-                <Typography variant='body1' fontSize={8}>Due Date</Typography>
+                <Typography variant='subtitle2' fontSize={7.5}>ครบกำหนด / </Typography>
+                <Typography variant='body1' fontSize={7.5}>Due Date</Typography>
             </Stack>
             <Stack sx={{display:'flex',flexDirection:"row",alignItems:"flex-end",width:"18%"}}>
                 <Typography variant='body1' fontSize={10}>{dateNow}</Typography>
@@ -160,32 +160,6 @@ export default function Header({orders,type, ...other }) {
                 <Typography variant='body1' fontSize={10}>&nbsp;</Typography>
             </Stack>
         </Stack>
-        {/* <Stack sx={{display:"flex",flexDirection:"row"}}>
-            <Stack sx={{display:"flex",flexDirection:"column",width:"10%" ,padding:"5px" ,border:"solid",borderWidth:"1px 0px 1px 1px"}}>
-                <Typography variant='subtitle2' fontSize={10}>รหัส</Typography>
-                <Typography variant='body1' fontSize={10}>ID no.</Typography>
-            </Stack>
-            <Stack sx={{display:"flex",flexDirection:"column",width:"43%" ,padding:"5px",border:"solid",borderWidth:"1px 1px 1px 1px"}}>
-                <Typography variant='subtitle2' fontSize={10}>คำอธิบาย</Typography>
-                <Typography variant='body1' fontSize={10}>Description</Typography>
-            </Stack>
-            <Stack sx={{display:"flex",flexDirection:"column",width:"10%" ,padding:"5px" ,border:"solid",borderWidth:"1px 1px 1px 0px"}}>
-                <Typography variant='subtitle2' fontSize={10}>จำนวน</Typography>
-                <Typography variant='body1' fontSize={10}>Quantity</Typography>
-            </Stack>
-            <Stack sx={{display:"flex",flexDirection:"column",width:"7%" ,padding:"5px" ,border:"solid",borderWidth:"1px 1px 1px 0px"}}>
-                <Typography variant='subtitle2' fontSize={10}>หน่วย</Typography>
-                <Typography variant='body1' fontSize={10}>Unit</Typography>
-            </Stack>
-            <Stack sx={{display:"flex",flexDirection:"column",width:"15%" ,padding:"5px" ,border:"solid",borderWidth:"1px 1px 1px 0px"}}>
-                <Typography variant='subtitle2' fontSize={10}>ราคาต่อหน่วย</Typography>
-                <Typography variant='body1' fontSize={10}>Unit Price</Typography>
-            </Stack>
-            <Stack sx={{display:"flex",flexDirection:"column",width:"15%" ,padding:"5px" ,border:"solid",borderWidth:"1px 1px 1px 0px"}}>
-                <Typography variant='subtitle2' fontSize={10}>มูลค่าก่อนภาษี</Typography>
-                <Typography variant='body1' fontSize={10}>Pre-Tax Amount</Typography>
-            </Stack>
-        </Stack> */}
     </Box>
   );
 }

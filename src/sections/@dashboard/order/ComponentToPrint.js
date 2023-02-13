@@ -7,13 +7,13 @@ ComponentToPrint.propTypes = {
     orders: PropTypes.array.isRequired
   };
 
-export default function ComponentToPrint({refPropWithAnotherName,orders,type, ...other }) {
+export default function ComponentToPrint({refPropWithAnotherName,orders,type,date, ...other }) {
   const prodLength = orders.order_product_historys.length;
   const page = parseFloat((parseFloat(prodLength / 29) - Math.floor(prodLength / 29)).toFixed(2));
   const maxPage = page > 0.5 ? Math.ceil(prodLength / 29)+1 : Math.ceil(prodLength / 29);
   return (
     <Box className='hideComponent' ref={refPropWithAnotherName} sx={{margin:"20px 40px 20px 40px"}}>
-        <Header orders={orders} type={type} />
+        <Header orders={orders} type={type} date={date} />
         <Content orders={orders}/>
         <Footer maxPage={maxPage}/>
     </Box>
