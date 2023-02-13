@@ -160,7 +160,7 @@ export default function Header({orders,type, ...other }) {
                 <Typography variant='body1' fontSize={10}>&nbsp;</Typography>
             </Stack>
         </Stack>
-        <Stack sx={{display:"flex",flexDirection:"row"}}>
+        {/* <Stack sx={{display:"flex",flexDirection:"row"}}>
             <Stack sx={{display:"flex",flexDirection:"column",width:"10%" ,padding:"5px" ,border:"solid",borderWidth:"1px 0px 1px 1px"}}>
                 <Typography variant='subtitle2' fontSize={10}>รหัส</Typography>
                 <Typography variant='body1' fontSize={10}>ID no.</Typography>
@@ -185,7 +185,7 @@ export default function Header({orders,type, ...other }) {
                 <Typography variant='subtitle2' fontSize={10}>มูลค่าก่อนภาษี</Typography>
                 <Typography variant='body1' fontSize={10}>Pre-Tax Amount</Typography>
             </Stack>
-        </Stack>
+        </Stack> */}
     </Box>
   );
 }
