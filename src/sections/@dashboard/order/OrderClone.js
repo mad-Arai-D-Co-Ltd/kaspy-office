@@ -94,6 +94,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: inputOrderProdTemp[key].costPrice,
                         quantity: inputOrderProdTemp[key].quantity,
                         unitId: inputOrderProdTemp[key].unitId,
+                        product : inputOrderProdTemp[key],
                     }
                 };
             });
@@ -111,6 +112,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: data,
                         quantity: inputOrderProdTemp[key].quantity,
                         unitId: inputOrderProdTemp[key].unitId,
+                        product : inputOrderProdTemp[key],
                     }
                 };
             });
@@ -129,6 +131,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: inputOrderProdTemp[key].costPrice,
                         quantity: data,
                         unitId: inputOrderProdTemp[key].unitId,
+                        product : inputOrderProdTemp[key],
                     }
                 };
             });
@@ -146,6 +149,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: inputOrderProdTemp[key].costPrice,
                         quantity: inputOrderProdTemp[key].quantity,
                         unitId: data,
+                        product : inputOrderProdTemp[key],
                     }
                 };
             });
@@ -177,7 +181,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
             const { data } = res;
             if (data.type === 'success') {
             setOpen(false);
-            // window.location.reload();
+            window.location.reload();
             } else {
             errors.result = 'พบข้อผิดพลาด กรุณาติดต่อผู้ดูแลระบบ';
             setErrors(errors);
