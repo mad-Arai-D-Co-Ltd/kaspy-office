@@ -94,7 +94,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: inputOrderProdTemp[key].costPrice,
                         quantity: inputOrderProdTemp[key].quantity,
                         unitId: inputOrderProdTemp[key].unitId,
-                        product : inputOrderProdTemp[key],
+                        product : value,
                     }
                 };
             });
@@ -112,7 +112,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: data,
                         quantity: inputOrderProdTemp[key].quantity,
                         unitId: inputOrderProdTemp[key].unitId,
-                        product : inputOrderProdTemp[key],
+                        product : inputOrderProdTemp[key].product,
                     }
                 };
             });
@@ -131,7 +131,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: inputOrderProdTemp[key].costPrice,
                         quantity: data,
                         unitId: inputOrderProdTemp[key].unitId,
-                        product : inputOrderProdTemp[key],
+                        product : inputOrderProdTemp[key].product,
                     }
                 };
             });
@@ -149,7 +149,7 @@ export default function OrderClone({ orderTemp, productList, unitList, ...other 
                         costPrice: inputOrderProdTemp[key].costPrice,
                         quantity: inputOrderProdTemp[key].quantity,
                         unitId: data,
-                        product : inputOrderProdTemp[key],
+                        product : inputOrderProdTemp[key].product,
                     }
                 };
             });
