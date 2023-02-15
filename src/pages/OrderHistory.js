@@ -63,9 +63,36 @@ export default function OrderHistory() {
   };
   
   const handleSearch = () => {
-    console.log("test");
     getOrderHisList();
   }
+
+  const [showPopupConfirmDelete, setShowPopupConfirmDelete] = useState(false);
+  const [deleteBannerId,setDeleteBannerId] = useState("");
+
+  const handleDeletePopup = (id) => {
+    setShowPopupConfirmDelete(!showPopupConfirmDelete);
+    setDeleteBannerId(id);
+  }
+
+  const handleDeleteOrderHistory = () => {
+    const url = `${api.deleteBanner}${deleteBannerId}`
+    axios
+      .delete(url)
+      .then((res) => {
+        const { data } = res;
+        if (data.type === 'success') {
+          getOrderHisList();
+          setShowPopupConfirmDelete(!showPopupConfirmDelete);
+        } else {
+          errors.result = 'พบข้อผิดพลาด กรุณาติดต่อผู้ดูแลระบบ';
+          setErrors(errors);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
 
   return (
     <Page title="Dashboard: Products">
@@ -106,6 +133,9 @@ export default function OrderHistory() {
         </Stack>
         <OrderHisTable 
           orders={orderHisList}
+          showPopupConfirmDelete={showPopupConfirmDelete}
+          handleDeletePopup={handleDeletePopup}
+          handleDeleteOrderHistory={handleDeleteOrderHistory}
         />
       </Container>
     </Page>

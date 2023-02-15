@@ -34,7 +34,7 @@ export default function Content({orders, ...other }) {
                     marginTop:key === pageBreak[0]+1 || key === pageBreak[1]+1 || key === pageBreak[2]+1 || key === pageBreak[3]+1 || key === pageBreak[4]+1 ? "18rem" : "0px",}}>
                     <Stack sx={{display:key === 0 || key === pageBreak[0]+1 || key === pageBreak[1]+1 || key === pageBreak[2]+1 || key === pageBreak[3]+1 || key === pageBreak[4]+1 ? "flex":"none",flexDirection:"row",}}>
                         <Stack sx={{display:"flex",flexDirection:"column",width:"10%" ,padding:"5px" ,border:"solid",borderWidth:"1px 0px 1px 1px"}}>
-                            <Typography variant='subtitle2' fontSize={10}>รหัส</Typography>
+                            <Typography variant='subtitle2' fontSize={10}>ลำดับ</Typography>
                             <Typography variant='body1' fontSize={10}>ID no.</Typography>
                         </Stack>
                         <Stack sx={{display:"flex",flexDirection:"column",width:"43%" ,padding:"5px",border:"solid",borderWidth:"1px 1px 1px 1px"}}>
@@ -63,7 +63,7 @@ export default function Content({orders, ...other }) {
                         
                         <Stack sx={{display:"flex",flexDirection:"column",width:"10%" ,padding:"5px" ,border:"solid",
                         borderWidth: key === prodLength-1 || key === pageBreak[0] || key === pageBreak[1] || key === pageBreak[2] || key === pageBreak[3] || key === pageBreak[4] ? "0px 0px 1px 1px" : "0px 0px 0px 1px"  }}>
-                            <Typography variant='body1' fontSize={10} textAlign={"center"}>{prod.productCode === ""? "-":prod.productCode}</Typography>
+                            <Typography variant='body1' fontSize={10} textAlign={"center"}>{key + 1}</Typography>
                         </Stack>
                         <Stack sx={{display:"flex",flexDirection:"column",width:"43%" ,padding:"5px",border:"solid",
                         borderWidth: key === prodLength-1 || key === pageBreak[0] || key === pageBreak[1] || key === pageBreak[2] || key === pageBreak[3] || key === pageBreak[4] ? "0px 1px 1px 1px" : "0px 1px 0px 1px" }}>

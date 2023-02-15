@@ -13,12 +13,13 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import OrderPrint from './OrderPrint';
 import OrderHisEditCost from './OrderHisEditCost';
+import OrderHisDelete from './OrderHisDelete';
 
 OrderHisTable.propTypes = {
     orders: PropTypes.array.isRequired
   };
 
-export default function OrderHisTable({orders, ...other }) {
+export default function OrderHisTable({orders,showPopupConfirmDelete ,handleDeletePopup,handleDeleteOrderHistory, ...other }) {
 const [open, setOpen] = useState("");
 
   const handleClick = (value) => {
@@ -102,6 +103,12 @@ const [open, setOpen] = useState("");
                     <OrderPrint
                       orders={order}
                       type="copy"
+                    />
+
+                    <OrderHisDelete
+                      showPopupConfirmDelete={showPopupConfirmDelete}
+                      handleDeletePopup={handleDeletePopup}
+                      handleDeleteOrderHistory={handleDeleteOrderHistory}
                     />
                 </TableCell>
             </TableRow>
