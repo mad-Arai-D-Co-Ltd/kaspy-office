@@ -34,7 +34,7 @@ const ip = {
     orderHisList: `${apiIp}/api/v1/order-his/order-his-list`,
     createOrderHis : `${apiIp}/api/v1/order-his/create-order-his`,
     updateCostPrice : `${apiIp}/api/v1/order-his/update-prod-his`,
-
+    deleteOrderHis : `${apiIp}/api/v1/order-his/delete-order-his`,
     // dashboard
     weeklySales : `${apiIp}/api/v1/analysis/weekly-sales`,
     weeklyOrder : `${apiIp}/api/v1/analysis/weekly-orders`,
