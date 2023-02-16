@@ -106,6 +106,7 @@ const [open, setOpen] = useState("");
                     />
 
                     <OrderHisDelete
+                      orderId={order.id}
                       showPopupConfirmDelete={showPopupConfirmDelete}
                       handleDeletePopup={handleDeletePopup}
                       handleDeleteOrderHistory={handleDeleteOrderHistory}

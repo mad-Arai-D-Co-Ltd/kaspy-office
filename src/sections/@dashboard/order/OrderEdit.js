@@ -139,6 +139,7 @@ export default function OrderEdit({ orderTemp, productList, unitList, ...other }
             return {
                 ...lastValue,
                 'order_product_templates': inputOrderProdTemp,
+                'deleteId' : deleteId,
             };
         });
         setCheckUpdate(true);
@@ -146,7 +147,6 @@ export default function OrderEdit({ orderTemp, productList, unitList, ...other }
 
     const updateOrderTemp = (id) => {
         const url = api.updateOrderTemp+id;
-
         axios
         .put(url, inputOrderTemp,{
             headers: {
@@ -171,16 +171,26 @@ export default function OrderEdit({ orderTemp, productList, unitList, ...other }
     const handleSaveUpdate = (id) => {
         updateOrderTemp(id);
     }
-
-    const deleteProd = (index) => {
+    const [deleteId,setDeleteId] = useState([]);
+    const deleteProd = async(index) => {
         setCheckUpdate(false);
-        delete inputOrderProdTemp[index];
-        setInputOrderTemp((lastValue) => {
+        await delete inputOrderProdTemp[index];
+        await setInputOrderTemp((lastValue) => {
             return {
                 ...lastValue,
                 'order_product_templates': inputOrderProdTemp,
             };
         });
+        await setDeleteId((lastValue) => {
+            return [
+                ...lastValue,
+                {'id':index}
+            ];
+        });
+        setOpen(false);
+        await setInputOrderProdTemp(inputOrderProdTemp);
+        
+        setOpen(true);
     }
 
 

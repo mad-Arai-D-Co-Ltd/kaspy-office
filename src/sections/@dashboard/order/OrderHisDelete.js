@@ -15,12 +15,12 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 // ----------------------------------------------------------------------
 
 
-export default function OrderHisDelete({showPopupConfirmDelete,handleDeletePopup,handleDeleteOrderHistory, ...other }) {
+export default function OrderHisDelete({orderId,showPopupConfirmDelete,handleDeletePopup,handleDeleteOrderHistory, ...other }) {
 
     return (
         <Box>
             <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", marginBottom: "1rem" }}>
-                <Button variant='outlined' sx={{ width: "20%" }} color="error" onClick={() => handleDeletePopup("")} >ลบ</Button>
+                <Button variant='outlined' sx={{ width: "20%" }} color="error" onClick={() => handleDeletePopup(orderId)} >ลบ</Button>
             </Stack>
 
             <Modal
@@ -35,7 +35,7 @@ export default function OrderHisDelete({showPopupConfirmDelete,handleDeletePopup
                     variant='h6'
                     sx={{alignSelf:"center"}}
                     >
-                        Confirm delete banner
+                        Confirm delete order history
                     </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'row', marginTop: '10px',justifyContent : 'space-evenly' }}>
                         <Button onClick={() => handleDeletePopup("")} >Back</Button>

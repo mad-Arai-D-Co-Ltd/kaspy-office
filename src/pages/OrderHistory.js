@@ -67,15 +67,16 @@ export default function OrderHistory() {
   }
 
   const [showPopupConfirmDelete, setShowPopupConfirmDelete] = useState(false);
-  const [deleteBannerId,setDeleteBannerId] = useState("");
+  const [deleteOrderHisId,setDeleteOrderHisId] = useState("");
 
   const handleDeletePopup = (id) => {
     setShowPopupConfirmDelete(!showPopupConfirmDelete);
-    setDeleteBannerId(id);
+    setDeleteOrderHisId(id);
   }
 
   const handleDeleteOrderHistory = () => {
-    const url = `${api.deleteBanner}${deleteBannerId}`
+    const url = `${api.deleteOrderHis}${deleteOrderHisId}`
+    console.log(url);
     axios
       .delete(url)
       .then((res) => {
