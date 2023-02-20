@@ -40,6 +40,7 @@ const [open, setOpen] = useState("");
             <TableCell align="center">ที่อยู่จัดส่ง</TableCell>
             <TableCell align="center"> </TableCell>
             <TableCell align="center">สินค้า</TableCell>
+            <TableCell align="center">วันที่สร้าง</TableCell>
             <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
@@ -93,6 +94,9 @@ const [open, setOpen] = useState("");
                         
                     </Table>
                     </Collapse>
+                </TableCell>
+                <TableCell align="center" sx={{display:"column"}}>
+                  {order.createdAt}
                 </TableCell>
                 <TableCell align="center" sx={{display:"column"}}>
                   <OrderHisEditCost productData={order.order_product_historys} />
