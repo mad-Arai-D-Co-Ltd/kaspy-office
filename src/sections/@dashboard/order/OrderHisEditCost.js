@@ -37,20 +37,42 @@ export default function OrderHisEditCost({productData, ...other }) {
     };
 
     const inputEventProdTemp = (key,event,data) => {
-        // const name = event.target.name;
+        const name = event.target.name;
         const value = event.target.value;
-        setInputProdTemp((lastValue) => {
-            return {
-                ...lastValue,
-                [key]:{
-                    id:data.id,
-                    productName:data.productName,
-                    price:data.price,
-                    unit:data.unit,
-                    costPrice:value,
-                }
-            };
-        });
+
+        if (name === "quantity") {
+            setInputProdTemp((lastValue) => {
+                return {
+                    ...lastValue,
+                    [key]:{
+                        id:data.id,
+                        productName:data.productName,
+                        price:data.price,
+                        unit:data.unit,
+                        quantity:value,
+                        costPrice:data.costPrice,
+                    }
+                };
+            });
+        }
+
+        if(name === "costPrice"){
+            setInputProdTemp((lastValue) => {
+                return {
+                    ...lastValue,
+                    [key]:{
+                        id:data.id,
+                        productName:data.productName,
+                        price:data.price,
+                        unit:data.unit,
+                        costPrice:value,
+                        quantity:data.quantity,
+                    }
+                };
+            });
+        }
+
+        
 
     }
 
@@ -129,7 +151,6 @@ export default function OrderHisEditCost({productData, ...other }) {
                                                 defaultValue={element.quantity}
                                                 error={Boolean(errors.quantity)}
                                                 helperText={errors.quantity}
-                                                disabled
                                             />
 
                                             <TextField
